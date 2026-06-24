@@ -6,7 +6,8 @@ import {
   Send, Copy, Check, ArrowUpRight, BarChart3, BotMessageSquare, Camera,
   Trophy, BookOpen, Users, Sun, Moon,
 } from "lucide-react";
-import profileImg from "@/assets/profile.jpg";
+const imageModules = import.meta.glob<{ default: string }>("@/assets/profile.{png,jpg,jpeg}", { eager: true });
+const profileImg = Object.values(imageModules)[0]?.default || "";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,7 +27,7 @@ const NAV = [
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
-  { id: "certifications", label: "Certs" },
+  { id: "certifications", label: "Certificates" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -51,7 +52,7 @@ function Portfolio() {
     setTheme((prev) => {
       const next = prev === "dark" ? "light" : "dark";
       document.documentElement.classList.toggle("dark", next === "dark");
-      try { localStorage.setItem("theme", next); } catch {}
+      try { localStorage.setItem("theme", next); } catch { }
       return next;
     });
   };
@@ -108,10 +109,12 @@ function Nav({
   return (
     <header className={`fixed top-3 left-1/2 z-50 -translate-x-1/2 transition-all duration-300 ${scrolled ? "w-[min(96%,1100px)]" : "w-[min(98%,1180px)]"}`}>
       <nav className={`glass flex items-center justify-between rounded-full px-4 py-2.5 md:px-6 ${scrolled ? "shadow-glow" : ""}`}>
-        <a href="#top" className="flex items-center gap-2 font-display font-bold text-base md:text-lg">
-          <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-primary text-primary-foreground shadow-glow">
-            <Sparkles className="h-4 w-4" />
-          </span>
+        <a href="#top" className="flex items-center gap-2.5 font-display font-bold text-base md:text-lg">
+          <div className="relative h-8 w-8 shrink-0 rounded-full border-2 border-primary/70 p-[2px] bg-background shadow-glow">
+            <div className="h-full w-full rounded-full overflow-hidden">
+              <img src={profileImg} alt="Pradyumna" className="h-full w-full object-cover" />
+            </div>
+          </div>
           <span className="hidden sm:inline">Pradyumna</span>
         </a>
         <ul className="hidden items-center gap-1 md:flex">
@@ -160,7 +163,7 @@ function Section({ id, eyebrow, title, subtitle, children }: { id?: string; eyeb
 
 function Hero() {
   return (
-    <section id="top" className="relative mx-auto w-full max-w-7xl px-5 pt-32 pb-16 md:px-8 md:pt-40 md:pb-24">
+    <section id="top" className="relative mx-auto w-full max-w-7xl px-5 pt-20 pb-16 md:px-8 md:pt-28 md:pb-24">
       <div className="grid items-center gap-12 md:grid-cols-[1.2fr_1fr]">
         <div className="animate-fade-up">
           <span className="glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold text-primary">
@@ -198,31 +201,41 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-sm animate-fade-up md:mx-0">
-          <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-primary opacity-30 blur-2xl" />
-          <div className="glass-strong relative rounded-[2rem] p-3 shadow-glow">
-            <div className="relative overflow-hidden rounded-[1.5rem]">
-              <img src={profileImg} alt="Pradyumna Kumar Mohapatra" width={768} height={896} className="h-full w-full object-cover" />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                <p className="text-xs font-medium text-white/80">Bhubaneswar, India</p>
-                <p className="text-sm font-semibold text-white">B.Tech CSE · PMEC</p>
+        <div className="relative mx-auto w-full max-w-xs animate-fade-up md:ml-auto md:mr-16">
+          <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-primary opacity-20 blur-2xl" />
+          <div className="glass-strong relative rounded-[2.5rem] p-4 shadow-glow">
+            <div className="relative overflow-hidden rounded-[1.8rem] border border-white/5 bg-slate-950/20">
+              <img src={profileImg} alt="Pradyumna Kumar Mohapatra" width={768} height={896} className="h-full w-full object-cover aspect-[4/5] transition-transform duration-700 hover:scale-105" />
+            </div>
+            
+            <div className="mt-4 px-1.5 pb-1.5 flex flex-col gap-3">
+              <div className="flex items-center justify-between border-b border-border/60 pb-3">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/80">Location</span>
+                  <p className="text-xs font-semibold text-foreground mt-0.5">Bhubaneswar, India</p>
+                </div>
+                <div className="text-right">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/80">Education</span>
+                  <p className="text-xs font-semibold text-foreground mt-0.5">B.Tech CSE · PMEC</p>
+                </div>
+              </div>
+              
+              <div className="flex flex-wrap gap-2 mt-1">
+                <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 border border-primary/20 px-2.5 py-0.5 text-[10px] font-bold text-primary uppercase tracking-wide">
+                  <Brain className="h-3 w-3" /> AI/ML
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 border border-primary/20 px-2.5 py-0.5 text-[10px] font-bold text-primary uppercase tracking-wide">
+                  <Eye className="h-3 w-3" /> Vision
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 border border-primary/20 px-2.5 py-0.5 text-[10px] font-bold text-primary uppercase tracking-wide">
+                  <Cloud className="h-3 w-3" /> Cloud
+                </span>
               </div>
             </div>
           </div>
-          <FloatingChip className="absolute -left-6 top-10 animate-float" icon={<Brain className="h-4 w-4 text-primary" />} label="AI/ML" />
-          <FloatingChip className="absolute -right-4 top-1/3 animate-float [animation-delay:1s]" icon={<Eye className="h-4 w-4 text-accent-pink" />} label="Computer Vision" />
-          <FloatingChip className="absolute -left-2 bottom-10 animate-float [animation-delay:2s]" icon={<Cloud className="h-4 w-4 text-accent-cyan" />} label="GCP" />
         </div>
       </div>
     </section>
-  );
-}
-
-function FloatingChip({ className = "", icon, label }: { className?: string; icon: React.ReactNode; label: string }) {
-  return (
-    <div className={`glass-strong inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold ${className}`}>
-      {icon} {label}
-    </div>
   );
 }
 
@@ -298,39 +311,53 @@ function Education() {
 }
 
 function Experience() {
+  const logoModules = import.meta.glob<{ default: string }>("@/assets/logos/*.{png,jpg,jpeg,svg}", { eager: true });
+
   const items = [
-    { role: "Applied AI & Data Research Intern", org: "Plasticure Private Limited", time: "Jun 2026 — Present", bullets: ["Computer Vision research & model development", "AI-powered image processing solutions", "Plastic bottle detection & classification"], tag: "Current" },
-    { role: "Summer Intern", org: "Central Tool Room & Training Centre (CTTC)", time: "Jun 2025 — Jul 2025", bullets: ["Hands-on industrial training", "Applied engineering practice"] },
-    { role: "Data Analytics Virtual Intern", org: "Tata Group (Forage)", time: "May 2025 — Jul 2025", bullets: ["Business analytics simulations", "Data-driven decision frameworks"] },
-    { role: "GCP Skills Learner", org: "Google Cloud Skills Boost", time: "Jan 2025 — Jun 2025", bullets: ["Cloud computing fundamentals", "Hands-on labs across GCP services"] },
-    { role: "Summer Intern", org: "Parala Maharaja Engineering College", time: "Jun 2024 — Jul 2024", bullets: ["Applied CS coursework projects"] },
-    { role: "Member", org: "ROBOSTREAKS Robotics Club", time: "Oct 2024 — Present", bullets: ["Robotics & embedded systems", "Team-based engineering"] },
+    { role: "Applied AI & Data Research Intern", org: "Plasticure Private Limited", time: "Jun 2026 — Present", bullets: ["Computer Vision research & model development", "AI-powered image processing solutions", "Plastic bottle detection & classification"], tag: "Current", logoKey: "plasticure" },
+    { role: "Summer Intern", org: "Central Tool Room & Training Centre (CTTC)", time: "Jun 2025 — Jul 2025", bullets: ["Hands-on industrial training", "Applied engineering practice"], logoKey: "cttc" },
+    { role: "Data Analytics Virtual Intern", org: "Tata Group (Forage)", time: "May 2025 — Jul 2025", bullets: ["Business analytics simulations", "Data-driven decision frameworks"], logoKey: "tata" },
+    { role: "GCP Skills Learner", org: "Google Cloud Skills Boost", time: "Jan 2025 — Jun 2025", bullets: ["Cloud computing fundamentals", "Hands-on labs across GCP services"], logoKey: "gcp" },
+    { role: "Summer Intern", org: "Parala Maharaja Engineering College", time: "Jun 2024 — Jul 2024", bullets: ["Applied CS coursework projects"], logoKey: "pmec" },
+    { role: "Member", org: "ROBOSTREAKS Robotics Club", time: "Oct 2024 — Present", bullets: ["Robotics & embedded systems", "Team-based engineering"], logoKey: "robostreaks" },
   ];
   return (
     <Section id="experience" eyebrow="Experience" title="Internships, research & teams" subtitle="Real-world exposure across AI research, analytics, cloud, and robotics.">
       <div className="grid gap-5 md:grid-cols-2">
-        {items.map((e, i) => (
-          <article key={i} className="glass group relative overflow-hidden rounded-3xl p-6 transition-all hover:-translate-y-1 hover:shadow-glow">
-            <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-primary opacity-0 blur-2xl transition-opacity group-hover:opacity-30" />
-            <div className="flex items-start justify-between gap-3">
-              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-glow">
-                <Briefcase className="h-5 w-5" />
+        {items.map((e, i) => {
+          const logoUrl = Object.entries(logoModules).find(([path]) =>
+            path.includes(`/logos/${e.logoKey}.`)
+          )?.[1]?.default;
+
+          return (
+            <article key={i} className="glass group relative overflow-hidden rounded-3xl p-6 transition-all hover:-translate-y-1 hover:shadow-glow">
+              <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-primary opacity-0 blur-2xl transition-opacity group-hover:opacity-30" />
+              <div className="flex items-start justify-between gap-3">
+                {logoUrl ? (
+                  <div className="grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl bg-white p-1.5 shadow-glow">
+                    <img src={logoUrl} alt={e.org} className="h-full w-full object-contain" />
+                  </div>
+                ) : (
+                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-glow">
+                    <Briefcase className="h-5 w-5" />
+                  </div>
+                )}
+                {e.tag && <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary">{e.tag}</span>}
               </div>
-              {e.tag && <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary">{e.tag}</span>}
-            </div>
-            <h3 className="mt-4 text-lg font-semibold">{e.role}</h3>
-            <p className="text-sm font-medium text-primary">{e.org}</p>
-            <p className="mt-0.5 text-xs text-muted-foreground">{e.time}</p>
-            <ul className="mt-3 space-y-1.5">
-              {e.bullets.map((b, j) => (
-                <li key={j} className="flex gap-2 text-sm text-foreground/75">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                  {b}
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
+              <h3 className="mt-4 text-lg font-semibold">{e.role}</h3>
+              <p className="text-sm font-medium text-primary">{e.org}</p>
+              <p className="mt-0.5 text-xs text-muted-foreground">{e.time}</p>
+              <ul className="mt-3 space-y-1.5">
+                {e.bullets.map((b, j) => (
+                  <li key={j} className="flex gap-2 text-sm text-foreground/75">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          );
+        })}
       </div>
     </Section>
   );
@@ -338,14 +365,14 @@ function Experience() {
 
 function Skills() {
   const core = [
-    { name: "Artificial Intelligence", level: 88, icon: Brain },
-    { name: "Machine Learning", level: 85, icon: Cpu },
-    { name: "Computer Vision", level: 82, icon: Eye },
-    { name: "Python Development", level: 90, icon: Code2 },
-    { name: "Data Engineering", level: 75, icon: Database },
-    { name: "Google Cloud Platform", level: 78, icon: Cloud },
-    { name: "Data Analytics", level: 80, icon: BarChart3 },
-    { name: "Feature Engineering", level: 76, icon: BotMessageSquare },
+    { name: "Artificial Intelligence", level: "Advanced", keywords: ["Neural Networks", "NLP", "Deep Learning"], icon: Brain },
+    { name: "Machine Learning", level: "Advanced", keywords: ["Scikit-Learn", "Regression", "Clustering"], icon: Cpu },
+    { name: "Computer Vision", level: "Intermediate", keywords: ["OpenCV", "YOLO", "Segmentation"], icon: Eye },
+    { name: "Python Development", level: "Expert", keywords: ["Pandas", "NumPy", "Scripting", "APIs"], icon: Code2 },
+    { name: "Data Engineering", level: "Intermediate", keywords: ["SQL", "ETL Pipelines", "Data Warehousing"], icon: Database },
+    { name: "Google Cloud Platform", level: "Proficient", keywords: ["Compute Engine", "BigQuery", "Cloud Storage"], icon: Cloud },
+    { name: "Data Analytics", level: "Proficient", keywords: ["Power BI", "Excel", "Data Viz"], icon: BarChart3 },
+    { name: "Feature Engineering", level: "Advanced", keywords: ["Preprocessing", "Dimensionality Reduction"], icon: BotMessageSquare },
   ];
   const supporting = ["HTML", "CSS", "JavaScript", "Git", "GitHub", "SQL", "IoT", "Cloud Computing", "Data Visualization"];
   return (
@@ -353,18 +380,26 @@ function Skills() {
       <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
         <div className="grid gap-3 sm:grid-cols-2">
           {core.map((s) => (
-            <div key={s.name} className="glass group rounded-2xl p-4 transition-transform hover:-translate-y-0.5">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary/10 text-primary">
-                    <s.icon className="h-4 w-4" />
+            <div key={s.name} className="glass group rounded-2xl p-4.5 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+                    <s.icon className="h-5 w-5" />
                   </span>
-                  <span className="text-sm font-semibold">{s.name}</span>
+                  <div>
+                    <h4 className="text-sm font-bold text-foreground">{s.name}</h4>
+                    <span className="inline-block mt-0.5 text-[10px] font-semibold text-primary uppercase tracking-wider">
+                      {s.level}
+                    </span>
+                  </div>
                 </div>
-                <span className="text-xs font-bold text-muted-foreground">{s.level}%</span>
               </div>
-              <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-secondary">
-                <div className="h-full rounded-full bg-gradient-primary transition-[width] duration-700" style={{ width: `${s.level}%` }} />
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {s.keywords.map((k) => (
+                  <span key={k} className="rounded-md bg-secondary/60 px-2 py-0.5 text-[10px] font-medium text-muted-foreground transition-colors hover:text-foreground">
+                    {k}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
@@ -416,7 +451,7 @@ function Services() {
 function Projects() {
   const items = [
     {
-      title: "Automated Face Recognition & Attendance System",
+      title: "Face Recognition & Attendance System",
       icon: Camera,
       tag: "Computer Vision",
       desc: "Real-time face detection with automated attendance logging.",
@@ -455,21 +490,23 @@ function Projects() {
               </span>
             </div>
             <div className="flex flex-1 flex-col p-6">
-              <h3 className="text-lg font-semibold">{p.title}</h3>
-              <p className="mt-1.5 text-sm text-muted-foreground">{p.desc}</p>
-              <ul className="mt-4 space-y-1.5">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-xs text-foreground/75">
-                    <Check className="h-3.5 w-3.5 text-primary" /> {f}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {p.stack.map((s) => (
-                  <span key={s} className="rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">{s}</span>
-                ))}
+              <div className="flex-grow">
+                <h3 className="text-lg font-semibold">{p.title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{p.desc}</p>
+                <ul className="mt-4 space-y-1.5">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-xs text-foreground/75">
+                      <Check className="h-3.5 w-3.5 text-primary" /> {f}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {p.stack.map((s) => (
+                    <span key={s} className="rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">{s}</span>
+                  ))}
+                </div>
               </div>
-              <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+              <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
                 <a href="https://github.com/PradyumnaZypher" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs font-semibold text-foreground/70 hover:text-primary">
                   <Github className="h-3.5 w-3.5" /> Code
                 </a>
@@ -487,27 +524,33 @@ function Projects() {
 
 function Certifications() {
   const items = [
-    { name: "Google Cloud Certifications", org: "Google Cloud", icon: Cloud },
-    { name: "Data Science in Python", org: "University of Michigan", icon: Code2 },
-    { name: "Introduction to Big Data", org: "UC San Diego", icon: Database },
-    { name: "Big Data Modeling & Management", org: "UC San Diego", icon: Database },
-    { name: "Big Data Integration & Processing", org: "UC San Diego", icon: Database },
-    { name: "Machine Learning with Big Data", org: "UC San Diego", icon: Brain },
+    { name: "Google Cloud Certifications", org: "Google Cloud", icon: Cloud, url: "https://www.cloudskillsboost.google/" },
+    { name: "Data Science in Python", org: "University of Michigan", icon: Code2, url: "https://www.coursera.org/" },
+    { name: "Introduction to Big Data", org: "UC San Diego", icon: Database, url: "https://www.coursera.org/" },
+    { name: "Big Data Modeling & Management", org: "UC San Diego", icon: Database, url: "https://www.coursera.org/" },
+    { name: "Big Data Integration & Processing", org: "UC San Diego", icon: Database, url: "https://www.coursera.org/" },
+    { name: "Machine Learning with Big Data", org: "UC San Diego", icon: Brain, url: "https://www.coursera.org/" },
   ];
   return (
     <Section id="certifications" eyebrow="Credentials" title="Certifications" subtitle="Continuous learning across cloud, data science, and machine learning.">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((c) => (
-          <div key={c.name} className="glass group flex items-center gap-4 rounded-2xl p-5 transition-all hover:-translate-y-1 hover:shadow-glow">
+          <a
+            key={c.name}
+            href={c.url}
+            target="_blank"
+            rel="noreferrer"
+            className="glass group flex items-center gap-4 rounded-2xl p-5 transition-all hover:-translate-y-1 hover:shadow-glow cursor-pointer"
+          >
             <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-glow transition-transform group-hover:rotate-6">
               <c.icon className="h-5 w-5" />
             </span>
-            <div className="min-w-0">
-              <p className="truncate text-sm font-semibold">{c.name}</p>
+            <div className="min-w-0 flex-grow">
+              <p className="truncate text-sm font-semibold group-hover:text-primary transition-colors">{c.name}</p>
               <p className="text-xs text-muted-foreground">{c.org}</p>
             </div>
-            <Award className="ml-auto h-4 w-4 text-primary/40 transition-colors group-hover:text-primary" />
-          </div>
+            <Award className="ml-auto h-4 w-4 text-primary/40 transition-colors group-hover:text-primary shrink-0" />
+          </a>
         ))}
       </div>
     </Section>
