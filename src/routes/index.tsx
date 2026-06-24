@@ -4,7 +4,7 @@ import {
   Brain, Cpu, Eye, Database, Cloud, Code2, Mail, Github, Linkedin,
   Download, MapPin, GraduationCap, Briefcase, Award, Rocket, Sparkles,
   Send, Copy, Check, ArrowUpRight, BarChart3, BotMessageSquare, Camera,
-  Trophy, BookOpen, Users,
+  Trophy, BookOpen, Users, Sun, Moon,
 } from "lucide-react";
 import profileImg from "@/assets/profile.jpg";
 
@@ -33,6 +33,28 @@ const NAV = [
 function Portfolio() {
   const [progress, setProgress] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const stored = (typeof localStorage !== "undefined" && localStorage.getItem("theme")) as
+      | "light"
+      | "dark"
+      | null;
+    const prefersDark =
+      typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+    const initial: "light" | "dark" = stored ?? (prefersDark ? "dark" : "light");
+    setTheme(initial);
+    document.documentElement.classList.toggle("dark", initial === "dark");
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      document.documentElement.classList.toggle("dark", next === "dark");
+      try { localStorage.setItem("theme", next); } catch {}
+      return next;
+    });
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -58,7 +80,7 @@ function Portfolio() {
       <div aria-hidden className="pointer-events-none fixed top-1/3 -right-40 h-[32rem] w-[32rem] rounded-full bg-accent-pink/25 blur-3xl" />
       <div aria-hidden className="pointer-events-none fixed bottom-0 left-1/3 h-[26rem] w-[26rem] rounded-full bg-accent-cyan/20 blur-3xl" />
 
-      <Nav scrolled={scrolled} />
+      <Nav scrolled={scrolled} theme={theme} onToggleTheme={toggleTheme} />
       <Hero />
       <About />
       <Education />
@@ -74,7 +96,15 @@ function Portfolio() {
   );
 }
 
-function Nav({ scrolled }: { scrolled: boolean }) {
+function Nav({
+  scrolled,
+  theme,
+  onToggleTheme,
+}: {
+  scrolled: boolean;
+  theme: "light" | "dark";
+  onToggleTheme: () => void;
+}) {
   return (
     <header className={`fixed top-3 left-1/2 z-50 -translate-x-1/2 transition-all duration-300 ${scrolled ? "w-[min(96%,1100px)]" : "w-[min(98%,1180px)]"}`}>
       <nav className={`glass flex items-center justify-between rounded-full px-4 py-2.5 md:px-6 ${scrolled ? "shadow-glow" : ""}`}>
@@ -87,15 +117,25 @@ function Nav({ scrolled }: { scrolled: boolean }) {
         <ul className="hidden items-center gap-1 md:flex">
           {NAV.map((n) => (
             <li key={n.id}>
-              <a href={`#${n.id}`} className="rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/60 hover:text-foreground">
+              <a href={`#${n.id}`} className="rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground">
                 {n.label}
               </a>
             </li>
           ))}
         </ul>
-        <a href="#contact" className="inline-flex items-center gap-1.5 rounded-full bg-gradient-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]">
-          Hire me <ArrowUpRight className="h-3.5 w-3.5" />
-        </a>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            className="glass-strong grid h-9 w-9 place-items-center rounded-full text-foreground transition-transform hover:scale-110"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+          <a href="#contact" className="inline-flex items-center gap-1.5 rounded-full bg-gradient-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]">
+            Hire me <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+        </div>
       </nav>
     </header>
   );
@@ -209,7 +249,7 @@ function About() {
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Interests</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {interests.map((i) => (
-                <span key={i} className="rounded-full border border-border bg-white/60 px-3 py-1 text-xs font-medium text-foreground/80 transition-colors hover:border-primary hover:text-primary">
+                <span key={i} className="rounded-full border border-border bg-card/60 px-3 py-1 text-xs font-medium text-foreground/80 transition-colors hover:border-primary hover:text-primary">
                   {i}
                 </span>
               ))}
@@ -333,7 +373,7 @@ function Skills() {
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Supporting Stack</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {supporting.map((s) => (
-              <span key={s} className="rounded-full border border-border bg-white/70 px-3 py-1.5 text-xs font-semibold text-foreground/80 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary">
+              <span key={s} className="rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs font-semibold text-foreground/80 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary">
                 {s}
               </span>
             ))}
@@ -410,7 +450,7 @@ function Projects() {
               <div className="absolute inset-0 grid place-items-center">
                 <p.icon className="h-16 w-16 text-white/90 drop-shadow-xl transition-transform duration-500 group-hover:scale-110" />
               </div>
-              <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary backdrop-blur">
+              <span className="absolute left-4 top-4 rounded-full bg-card/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary backdrop-blur">
                 {p.tag}
               </span>
             </div>
@@ -522,7 +562,7 @@ function Contact() {
             </div>
           </div>
           <div className="mt-6 space-y-3">
-            <button onClick={copy} className="group flex w-full items-center justify-between rounded-2xl border border-border bg-white/60 px-4 py-3 text-left transition-colors hover:border-primary">
+            <button onClick={copy} className="group flex w-full items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-3 text-left transition-colors hover:border-primary">
               <span className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-primary" />
                 <span className="text-sm font-medium">{email}</span>
@@ -531,11 +571,11 @@ function Contact() {
                 {copied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
               </span>
             </button>
-            <a href="https://www.linkedin.com/in/pradyumna-kumar-mohapatra/" target="_blank" rel="noreferrer" className="flex items-center justify-between rounded-2xl border border-border bg-white/60 px-4 py-3 transition-colors hover:border-primary">
+            <a href="https://www.linkedin.com/in/pradyumna-kumar-mohapatra/" target="_blank" rel="noreferrer" className="flex items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-3 transition-colors hover:border-primary">
               <span className="flex items-center gap-3"><Linkedin className="h-4 w-4 text-primary" /><span className="text-sm font-medium">LinkedIn</span></span>
               <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
             </a>
-            <a href="https://github.com/PradyumnaZypher" target="_blank" rel="noreferrer" className="flex items-center justify-between rounded-2xl border border-border bg-white/60 px-4 py-3 transition-colors hover:border-primary">
+            <a href="https://github.com/PradyumnaZypher" target="_blank" rel="noreferrer" className="flex items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-3 transition-colors hover:border-primary">
               <span className="flex items-center gap-3"><Github className="h-4 w-4 text-primary" /><span className="text-sm font-medium">GitHub</span></span>
               <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
             </a>
@@ -550,7 +590,7 @@ function Contact() {
           <Field label="Subject" placeholder="Internship opportunity" className="mt-4" />
           <div className="mt-4">
             <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Message</label>
-            <textarea required rows={5} placeholder="Tell me about the role or project…" className="mt-1.5 w-full rounded-2xl border border-border bg-white/70 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20" />
+            <textarea required rows={5} placeholder="Tell me about the role or project…" className="mt-1.5 w-full rounded-2xl border border-border bg-card/70 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20" />
           </div>
           <button type="submit" className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]">
             <Send className="h-4 w-4" /> Send message
@@ -565,7 +605,7 @@ function Field({ label, className = "", ...props }: { label: string; className?:
   return (
     <div className={className}>
       <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{label}</label>
-      <input {...props} className="mt-1.5 w-full rounded-2xl border border-border bg-white/70 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20" />
+      <input {...props} className="mt-1.5 w-full rounded-2xl border border-border bg-card/70 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20" />
     </div>
   );
 }
@@ -578,9 +618,9 @@ function Footer() {
           Designed and Developed by <span className="font-semibold text-foreground">Pradyumna Kumar Mohapatra</span>
         </p>
         <div className="flex items-center gap-2">
-          <a href="https://www.linkedin.com/in/pradyumna-kumar-mohapatra/" target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-white/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Linkedin className="h-4 w-4" /></a>
-          <a href="https://github.com/PradyumnaZypher" target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-white/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Github className="h-4 w-4" /></a>
-          <a href="mailto:pradyumna7541@gmail.com" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-white/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Mail className="h-4 w-4" /></a>
+          <a href="https://www.linkedin.com/in/pradyumna-kumar-mohapatra/" target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Linkedin className="h-4 w-4" /></a>
+          <a href="https://github.com/PradyumnaZypher" target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Github className="h-4 w-4" /></a>
+          <a href="mailto:pradyumna7541@gmail.com" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Mail className="h-4 w-4" /></a>
         </div>
       </div>
     </footer>

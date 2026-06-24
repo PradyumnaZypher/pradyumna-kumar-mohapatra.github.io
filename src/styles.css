@@ -62,38 +62,39 @@
 }
 
 :root {
-  --radius: 1rem;
-  --background: oklch(0.985 0.005 260);
-  --foreground: oklch(0.18 0.03 265);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.03 265);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.03 265);
-  --primary: oklch(0.55 0.22 275);
-  --primary-foreground: oklch(0.99 0 0);
-  --primary-glow: oklch(0.7 0.22 295);
-  --accent-cyan: oklch(0.78 0.14 220);
-  --accent-pink: oklch(0.78 0.16 350);
-  --secondary: oklch(0.96 0.01 260);
-  --secondary-foreground: oklch(0.22 0.04 265);
-  --muted: oklch(0.96 0.01 260);
-  --muted-foreground: oklch(0.5 0.03 260);
-  --accent: oklch(0.95 0.03 280);
-  --accent-foreground: oklch(0.22 0.04 265);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.92 0.015 260);
-  --input: oklch(0.92 0.015 260);
-  --ring: oklch(0.6 0.18 275);
+  /* Classic, masculine, professional palette — ivory paper + deep navy + warm bronze/gold */
+  --radius: 0.875rem;
+  --background: oklch(0.97 0.008 80);
+  --foreground: oklch(0.22 0.03 260);
+  --card: oklch(0.995 0.004 80);
+  --card-foreground: oklch(0.22 0.03 260);
+  --popover: oklch(0.995 0.004 80);
+  --popover-foreground: oklch(0.22 0.03 260);
+  --primary: oklch(0.28 0.05 260);
+  --primary-foreground: oklch(0.98 0.01 85);
+  --primary-glow: oklch(0.42 0.07 260);
+  --accent-cyan: oklch(0.55 0.08 230);
+  --accent-pink: oklch(0.65 0.11 55);
+  --secondary: oklch(0.94 0.012 80);
+  --secondary-foreground: oklch(0.24 0.03 260);
+  --muted: oklch(0.93 0.012 80);
+  --muted-foreground: oklch(0.45 0.02 260);
+  --accent: oklch(0.74 0.12 75);
+  --accent-foreground: oklch(0.2 0.03 260);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.98 0.003 80);
+  --border: oklch(0.86 0.015 75);
+  --input: oklch(0.88 0.015 75);
+  --ring: oklch(0.65 0.11 75);
 
-  --gradient-primary: linear-gradient(135deg, oklch(0.6 0.22 275), oklch(0.72 0.2 320));
-  --gradient-mesh: radial-gradient(60% 80% at 15% 10%, oklch(0.9 0.12 285 / 0.55), transparent 60%),
-    radial-gradient(50% 70% at 90% 20%, oklch(0.9 0.1 220 / 0.5), transparent 60%),
-    radial-gradient(60% 80% at 80% 100%, oklch(0.92 0.1 340 / 0.45), transparent 60%);
-  --glass-bg: color-mix(in oklab, white 65%, transparent);
-  --glass-border: color-mix(in oklab, white 70%, oklch(0.6 0.18 275) 10%);
-  --shadow-glass: 0 10px 40px -12px oklch(0.4 0.12 275 / 0.18), 0 2px 6px -2px oklch(0.4 0.12 275 / 0.08);
-  --shadow-glow: 0 0 40px oklch(0.7 0.22 295 / 0.35);
+  --gradient-primary: linear-gradient(135deg, oklch(0.25 0.045 260), oklch(0.6 0.11 75));
+  --gradient-mesh: radial-gradient(55% 70% at 12% 8%, oklch(0.88 0.05 75 / 0.55), transparent 60%),
+    radial-gradient(45% 65% at 92% 18%, oklch(0.85 0.04 240 / 0.45), transparent 60%),
+    radial-gradient(55% 70% at 80% 100%, oklch(0.9 0.06 60 / 0.4), transparent 60%);
+  --glass-bg: color-mix(in oklab, white 70%, transparent);
+  --glass-border: color-mix(in oklab, white 60%, oklch(0.6 0.11 75) 12%);
+  --shadow-glass: 0 10px 40px -12px oklch(0.22 0.03 260 / 0.22), 0 2px 6px -2px oklch(0.22 0.03 260 / 0.1);
+  --shadow-glow: 0 0 40px oklch(0.6 0.11 75 / 0.3);
 
   --font-sans: "Inter", system-ui, sans-serif;
   --font-display: "Space Grotesk", "Inter", sans-serif;
@@ -113,25 +114,38 @@
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
+  /* Dark mode: midnight charcoal + warm gold accent */
+  --background: oklch(0.16 0.02 260);
+  --foreground: oklch(0.95 0.01 85);
+  --card: oklch(0.21 0.025 260);
+  --card-foreground: oklch(0.95 0.01 85);
+  --popover: oklch(0.21 0.025 260);
+  --popover-foreground: oklch(0.95 0.01 85);
+  --primary: oklch(0.74 0.12 75);
+  --primary-foreground: oklch(0.18 0.02 260);
+  --primary-glow: oklch(0.82 0.13 80);
+  --accent-cyan: oklch(0.68 0.09 230);
+  --accent-pink: oklch(0.72 0.12 55);
+  --secondary: oklch(0.26 0.025 260);
+  --secondary-foreground: oklch(0.95 0.01 85);
+  --muted: oklch(0.26 0.025 260);
+  --muted-foreground: oklch(0.72 0.02 80);
+  --accent: oklch(0.74 0.12 75);
+  --accent-foreground: oklch(0.18 0.02 260);
+  --destructive: oklch(0.7 0.19 22);
+  --destructive-foreground: oklch(0.98 0.003 80);
   --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.74 0.12 75);
+
+  --gradient-primary: linear-gradient(135deg, oklch(0.32 0.04 260), oklch(0.7 0.13 75));
+  --gradient-mesh: radial-gradient(55% 70% at 12% 8%, oklch(0.4 0.06 75 / 0.35), transparent 60%),
+    radial-gradient(45% 65% at 92% 18%, oklch(0.3 0.05 240 / 0.45), transparent 60%),
+    radial-gradient(55% 70% at 80% 100%, oklch(0.35 0.06 60 / 0.3), transparent 60%);
+  --glass-bg: color-mix(in oklab, oklch(0.22 0.025 260) 70%, transparent);
+  --glass-border: color-mix(in oklab, white 8%, oklch(0.7 0.12 75) 14%);
+  --shadow-glass: 0 10px 40px -12px oklch(0 0 0 / 0.55), 0 2px 6px -2px oklch(0 0 0 / 0.35);
+  --shadow-glow: 0 0 40px oklch(0.74 0.12 75 / 0.35);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -182,7 +196,7 @@
 }
 
 @utility glass-strong {
-  background: color-mix(in oklab, white 80%, transparent);
+  background: color-mix(in oklab, var(--card) 88%, transparent);
   backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-glass);
