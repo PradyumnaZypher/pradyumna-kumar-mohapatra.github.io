@@ -87,7 +87,7 @@ function Nav({ scrolled }: { scrolled: boolean }) {
         <ul className="hidden items-center gap-1 md:flex">
           {NAV.map((n) => (
             <li key={n.id}>
-              <a href={`#${n.id}`} className="rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/60 hover:text-foreground">
+              <a href={`#${n.id}`} className="rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-card/60 hover:text-foreground">
                 {n.label}
               </a>
             </li>
@@ -209,7 +209,7 @@ function About() {
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Interests</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {interests.map((i) => (
-                <span key={i} className="rounded-full border border-border bg-white/60 px-3 py-1 text-xs font-medium text-foreground/80 transition-colors hover:border-primary hover:text-primary">
+                <span key={i} className="rounded-full border border-border bg-card/60 px-3 py-1 text-xs font-medium text-foreground/80 transition-colors hover:border-primary hover:text-primary">
                   {i}
                 </span>
               ))}
@@ -333,7 +333,7 @@ function Skills() {
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Supporting Stack</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {supporting.map((s) => (
-              <span key={s} className="rounded-full border border-border bg-white/70 px-3 py-1.5 text-xs font-semibold text-foreground/80 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary">
+              <span key={s} className="rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs font-semibold text-foreground/80 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary">
                 {s}
               </span>
             ))}
@@ -410,7 +410,7 @@ function Projects() {
               <div className="absolute inset-0 grid place-items-center">
                 <p.icon className="h-16 w-16 text-white/90 drop-shadow-xl transition-transform duration-500 group-hover:scale-110" />
               </div>
-              <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary backdrop-blur">
+              <span className="absolute left-4 top-4 rounded-full bg-card/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary backdrop-blur">
                 {p.tag}
               </span>
             </div>
@@ -522,7 +522,7 @@ function Contact() {
             </div>
           </div>
           <div className="mt-6 space-y-3">
-            <button onClick={copy} className="group flex w-full items-center justify-between rounded-2xl border border-border bg-white/60 px-4 py-3 text-left transition-colors hover:border-primary">
+            <button onClick={copy} className="group flex w-full items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-3 text-left transition-colors hover:border-primary">
               <span className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-primary" />
                 <span className="text-sm font-medium">{email}</span>
@@ -531,11 +531,11 @@ function Contact() {
                 {copied ? <><Check className="h-3.5 w-3.5" /> Copied</> : <><Copy className="h-3.5 w-3.5" /> Copy</>}
               </span>
             </button>
-            <a href="https://www.linkedin.com/in/pradyumna-kumar-mohapatra/" target="_blank" rel="noreferrer" className="flex items-center justify-between rounded-2xl border border-border bg-white/60 px-4 py-3 transition-colors hover:border-primary">
+            <a href="https://www.linkedin.com/in/pradyumna-kumar-mohapatra/" target="_blank" rel="noreferrer" className="flex items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-3 transition-colors hover:border-primary">
               <span className="flex items-center gap-3"><Linkedin className="h-4 w-4 text-primary" /><span className="text-sm font-medium">LinkedIn</span></span>
               <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
             </a>
-            <a href="https://github.com/PradyumnaZypher" target="_blank" rel="noreferrer" className="flex items-center justify-between rounded-2xl border border-border bg-white/60 px-4 py-3 transition-colors hover:border-primary">
+            <a href="https://github.com/PradyumnaZypher" target="_blank" rel="noreferrer" className="flex items-center justify-between rounded-2xl border border-border bg-card/60 px-4 py-3 transition-colors hover:border-primary">
               <span className="flex items-center gap-3"><Github className="h-4 w-4 text-primary" /><span className="text-sm font-medium">GitHub</span></span>
               <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
             </a>
@@ -550,7 +550,7 @@ function Contact() {
           <Field label="Subject" placeholder="Internship opportunity" className="mt-4" />
           <div className="mt-4">
             <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Message</label>
-            <textarea required rows={5} placeholder="Tell me about the role or project…" className="mt-1.5 w-full rounded-2xl border border-border bg-white/70 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20" />
+            <textarea required rows={5} placeholder="Tell me about the role or project…" className="mt-1.5 w-full rounded-2xl border border-border bg-card/70 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20" />
           </div>
           <button type="submit" className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]">
             <Send className="h-4 w-4" /> Send message
@@ -565,7 +565,7 @@ function Field({ label, className = "", ...props }: { label: string; className?:
   return (
     <div className={className}>
       <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{label}</label>
-      <input {...props} className="mt-1.5 w-full rounded-2xl border border-border bg-white/70 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20" />
+      <input {...props} className="mt-1.5 w-full rounded-2xl border border-border bg-card/70 px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20" />
     </div>
   );
 }
@@ -578,9 +578,9 @@ function Footer() {
           Designed and Developed by <span className="font-semibold text-foreground">Pradyumna Kumar Mohapatra</span>
         </p>
         <div className="flex items-center gap-2">
-          <a href="https://www.linkedin.com/in/pradyumna-kumar-mohapatra/" target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-white/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Linkedin className="h-4 w-4" /></a>
-          <a href="https://github.com/PradyumnaZypher" target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-white/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Github className="h-4 w-4" /></a>
-          <a href="mailto:pradyumna7541@gmail.com" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-white/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Mail className="h-4 w-4" /></a>
+          <a href="https://www.linkedin.com/in/pradyumna-kumar-mohapatra/" target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Linkedin className="h-4 w-4" /></a>
+          <a href="https://github.com/PradyumnaZypher" target="_blank" rel="noreferrer" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Github className="h-4 w-4" /></a>
+          <a href="mailto:pradyumna7541@gmail.com" className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card/60 transition-all hover:-translate-y-0.5 hover:border-primary hover:text-primary"><Mail className="h-4 w-4" /></a>
         </div>
       </div>
     </footer>
