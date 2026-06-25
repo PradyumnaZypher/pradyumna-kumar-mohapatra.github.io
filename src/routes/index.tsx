@@ -115,6 +115,29 @@ function Portfolio() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          }
+        });
+      },
+      {
+        threshold: 0.05,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    const elements = document.querySelectorAll(".scroll-reveal");
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   return (
     <div className="relative min-h-screen overflow-x-hidden text-foreground">
       {/* Scroll progress */}
@@ -198,7 +221,7 @@ function Nav({
 function Section({ id, eyebrow, title, subtitle, children }: { id?: string; eyebrow?: string; title: string; subtitle?: string; children: React.ReactNode }) {
   return (
     <section id={id} className="relative mx-auto w-full max-w-7xl px-5 py-20 md:px-8 md:py-28">
-      <div className="mb-10 max-w-2xl md:mb-14">
+      <div className="mb-10 max-w-2xl md:mb-14 scroll-reveal">
         {eyebrow && (
           <span className="glass mb-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
             <Sparkles className="h-3 w-3" /> {eyebrow}
@@ -389,7 +412,7 @@ function About() {
   return (
     <Section id="about" eyebrow="About" title="Engineering intelligence, one model at a time." subtitle="A Computer Science Engineering student focused on AI, ML, Computer Vision, Data Engineering, and Cloud — turning curiosity into shipped solutions.">
       <div className="grid gap-6 md:grid-cols-[1.3fr_1fr]">
-        <div className="glass rounded-3xl p-7 md:p-9">
+        <div className="glass rounded-3xl p-7 md:p-9 scroll-reveal reveal-delay-50">
           <p className="text-base leading-relaxed text-foreground/80 md:text-lg">
             I love building at the intersection of <span className="font-semibold text-foreground">data, models, and real-world impact</span>.
             From training computer vision pipelines to designing analytics dashboards, I'm focused on solutions that
@@ -407,8 +430,8 @@ function About() {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-2">
-          {stats.map((s) => (
-            <div key={s.label} className="glass group rounded-2xl p-4 transition-transform hover:-translate-y-1">
+          {stats.map((s, index) => (
+            <div key={s.label} className={`glass group rounded-2xl p-4 transition-transform hover:-translate-y-1 scroll-reveal reveal-delay-${(index % 2) * 100 + 100}`}>
               <p className="text-xl font-bold text-gradient md:text-2xl">{s.value}</p>
               <p className="mt-1 text-xs font-medium text-muted-foreground">{s.label}</p>
             </div>
@@ -429,7 +452,7 @@ function Education() {
     <Section id="education" eyebrow="Education" title="Academic timeline" subtitle="A consistent record of building strong fundamentals across science and engineering.">
       <ol className="relative ml-3 border-l border-dashed border-primary/30 pl-6 md:ml-6">
         {items.map((it, i) => (
-          <li key={i} className="group relative mb-6 last:mb-0">
+          <li key={i} className={`group relative mb-6 last:mb-0 scroll-reveal reveal-delay-${(i % 3) * 100 + 100}`}>
             <span className="absolute -left-[34px] grid h-7 w-7 place-items-center rounded-full bg-gradient-primary text-primary-foreground shadow-glow">
               <it.icon className="h-3.5 w-3.5" />
             </span>
@@ -468,7 +491,7 @@ function Experience() {
           )?.[1]?.default;
 
           return (
-            <article key={i} className="glass group relative overflow-hidden rounded-3xl p-6 transition-all hover:-translate-y-1 hover:shadow-glow">
+            <article key={i} className={`glass group relative overflow-hidden rounded-3xl p-6 transition-all hover:-translate-y-1 hover:shadow-glow scroll-reveal reveal-delay-${(i % 2) * 150 + 100}`}>
               <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-primary opacity-0 blur-2xl transition-opacity group-hover:opacity-30" />
               <div className="flex items-start justify-between gap-3">
                 {logoUrl ? (
@@ -552,8 +575,8 @@ function Skills() {
     <Section id="skills" eyebrow="Skills" title="A toolkit built for AI-first products" subtitle="Core competencies backed by hands-on projects, certifications, and live deployments.">
       <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
         <div className="grid gap-3 sm:grid-cols-2">
-          {core.map((s) => (
-            <div key={s.name} className="glass group rounded-2xl p-4.5 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow">
+          {core.map((s, index) => (
+            <div key={s.name} className={`glass group rounded-2xl p-4.5 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow scroll-reveal reveal-delay-${(index % 2) * 50 + 50}`}>
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
                   <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
@@ -577,7 +600,7 @@ function Skills() {
             </div>
           ))}
         </div>
-        <div className="glass rounded-3xl p-6">
+        <div className="glass rounded-3xl p-6 scroll-reveal reveal-delay-200">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Supporting Stack</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {supporting.map((s) => (
@@ -606,8 +629,8 @@ function Services() {
   return (
     <Section id="services" eyebrow="What I Do" title="Services" subtitle="A focused set of capabilities I can bring to your team or product.">
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {items.map((s) => (
-          <div key={s.title} className="glass group relative overflow-hidden rounded-3xl p-6 transition-all hover:-translate-y-1.5 hover:shadow-glow">
+        {items.map((s, index) => (
+          <div key={s.title} className={`glass group relative overflow-hidden rounded-3xl p-6 transition-all hover:-translate-y-1.5 hover:shadow-glow scroll-reveal reveal-delay-${(index % 4) * 100 + 100}`}>
             <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
             <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-glow">
               <s.icon className="h-5 w-5" />
@@ -883,8 +906,10 @@ function Projects() {
   return (
     <Section id="projects" eyebrow="Selected Work" title="Featured projects" subtitle="A glimpse into shipped systems and research-grade builds.">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {items.map((p) => (
-          <ProjectCard key={p.title} p={p} unlocked={unlocked} onUnlock={handleUnlockAll} />
+        {items.map((p, index) => (
+          <div key={p.title} className={`scroll-reveal reveal-delay-${(index % 3) * 150 + 100}`}>
+            <ProjectCard p={p} unlocked={unlocked} onUnlock={handleUnlockAll} />
+          </div>
         ))}
       </div>
     </Section>
@@ -988,8 +1013,10 @@ function Certifications() {
   return (
     <Section id="certifications" eyebrow="Credentials" title="Certifications" subtitle="Continuous learning across cloud, data science, and machine learning.">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((c) => (
-          <CertificateCard key={c.name} c={c} />
+        {items.map((c, index) => (
+          <div key={c.name} className={`scroll-reveal reveal-delay-${(index % 3) * 100 + 100}`}>
+            <CertificateCard c={c} />
+          </div>
         ))}
       </div>
     </Section>
@@ -1008,8 +1035,8 @@ function Achievements() {
   return (
     <Section id="achievements" eyebrow="Highlights" title="Achievements" subtitle="Milestones that mark the journey so far.">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((a) => (
-          <div key={a.title} className="glass group rounded-2xl p-5 transition-all hover:-translate-y-1">
+        {items.map((a, index) => (
+          <div key={a.title} className={`glass group rounded-2xl p-5 transition-all hover:-translate-y-1 scroll-reveal reveal-delay-${(index % 3) * 100 + 100}`}>
             <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary">
               <a.icon className="h-4 w-4" />
             </span>
@@ -1033,7 +1060,7 @@ function Contact() {
   return (
     <Section id="contact" eyebrow="Get in touch" title="Let's build something intelligent." subtitle="Open to internships, collaborations, and research opportunities.">
       <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-        <div className="glass-strong rounded-3xl p-7">
+        <div className="glass-strong rounded-3xl p-7 scroll-reveal reveal-delay-100">
           <div className="flex items-center gap-3">
             <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-glow">
               <MapPin className="h-5 w-5" />
@@ -1064,7 +1091,7 @@ function Contact() {
           </div>
         </div>
 
-        <form onSubmit={(e) => { e.preventDefault(); window.location.href = `mailto:${email}`; }} className="glass rounded-3xl p-7">
+        <form onSubmit={(e) => { e.preventDefault(); window.location.href = `mailto:${email}`; }} className="glass rounded-3xl p-7 scroll-reveal reveal-delay-200">
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Your name" placeholder="Jane Doe" />
             <Field label="Email" type="email" placeholder="jane@company.com" />
