@@ -1,5 +1,5 @@
 import { r as __toESM } from "../_runtime.mjs";
-import { r as require_react } from "./react+tanstack__react-query.mjs";
+import { n as require_react } from "./@radix-ui/react-compose-refs+[...].mjs";
 //#region node_modules/lucide-react/dist/esm/shared/src/utils/mergeClasses.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 /**
@@ -153,6 +153,24 @@ var CodeXml = createLucideIcon("code-xml", [
 		key: "e7oirm"
 	}]
 ]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var LockOpen = createLucideIcon("lock-open", [["rect", {
+	width: "18",
+	height: "11",
+	x: "3",
+	y: "11",
+	rx: "2",
+	ry: "2",
+	key: "1w4ew1"
+}], ["path", {
+	d: "M7 11V7a5 5 0 0 1 9.9-1",
+	key: "1mm8w8"
+}]]);
 /**
 * @license lucide-react v0.575.0 - ISC
 *
@@ -531,6 +549,35 @@ var GraduationCap = createLucideIcon("graduation-cap", [
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var HeartPulse = createLucideIcon("heart-pulse", [["path", {
+	d: "M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5",
+	key: "mvr1a0"
+}], ["path", {
+	d: "M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27",
+	key: "auskq0"
+}]]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var KeyRound = createLucideIcon("key-round", [["path", {
+	d: "M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z",
+	key: "1s6t7t"
+}], ["circle", {
+	cx: "16.5",
+	cy: "7.5",
+	r: ".5",
+	fill: "currentColor",
+	key: "w0ekpg"
+}]]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var Linkedin = createLucideIcon("linkedin", [
 	["path", {
 		d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z",
@@ -550,6 +597,24 @@ var Linkedin = createLucideIcon("linkedin", [
 		key: "bt5ra8"
 	}]
 ]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var Lock = createLucideIcon("lock", [["rect", {
+	width: "18",
+	height: "11",
+	x: "3",
+	y: "11",
+	rx: "2",
+	ry: "2",
+	key: "1w4ew1"
+}], ["path", {
+	d: "M7 11V7a5 5 0 0 1 10 0v4",
+	key: "fwvmzm"
+}]]);
 /**
 * @license lucide-react v0.575.0 - ISC
 *
@@ -733,5 +798,18 @@ var Users = createLucideIcon("users", [
 		key: "nufk8"
 	}]
 ]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
+var X = createLucideIcon("x", [["path", {
+	d: "M18 6 6 18",
+	key: "1bl5f8"
+}], ["path", {
+	d: "m6 6 12 12",
+	key: "d8bk6v"
+}]]);
 //#endregion
-export { BookOpen as C, CodeXml as D, Sparkles as E, ChartColumn as O, BotMessageSquare as S, ArrowUpRight as T, Cloud as _, Rocket as a, Briefcase as b, Mail as c, Github as d, Eye as f, Copy as g, Cpu as h, Send as i, Linkedin as l, Database as m, Trophy as n, Moon as o, Download as p, Sun as r, MapPin as s, Users as t, GraduationCap as u, Check as v, Award as w, Brain as x, Camera as y };
+export { Sparkles as A, Camera as C, BookOpen as D, BotMessageSquare as E, CodeXml as M, ChartColumn as N, Award as O, Check as S, Brain as T, Download as _, Send as a, Copy as b, MapPin as c, Linkedin as d, KeyRound as f, Eye as g, Github as h, Sun as i, LockOpen as j, ArrowUpRight as k, Mail as l, GraduationCap as m, Users as n, Rocket as o, HeartPulse as p, Trophy as r, Moon as s, X as t, Lock as u, Database as v, Briefcase as w, Cloud as x, Cpu as y };

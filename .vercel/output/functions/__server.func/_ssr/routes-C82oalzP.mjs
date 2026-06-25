@@ -1,7 +1,12 @@
 import { r as __toESM } from "../_runtime.mjs";
-import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
-import { C as BookOpen, D as CodeXml, E as Sparkles, O as ChartColumn, S as BotMessageSquare, T as ArrowUpRight, _ as Cloud, a as Rocket, b as Briefcase, c as Mail, d as Github, f as Eye, g as Copy, h as Cpu, i as Send, l as Linkedin, m as Database, n as Trophy, o as Moon, p as Download, r as Sun, s as MapPin, t as Users, u as GraduationCap, v as Check, w as Award, x as Brain, y as Camera } from "../_libs/lucide-react.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-DcuX0-Ih.js
+import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
+import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
+import { a as DialogOverlay$1, c as DialogTrigger$1, i as DialogDescription$1, n as DialogClose, o as DialogPortal$1, r as DialogContent$1, s as DialogTitle$1, t as Dialog$1 } from "../_libs/@radix-ui/react-dialog+[...].mjs";
+import { n as toast } from "../_libs/sonner.mjs";
+import { A as Sparkles, C as Camera, D as BookOpen, E as BotMessageSquare, M as CodeXml, N as ChartColumn, O as Award, S as Check, T as Brain, _ as Download, a as Send, b as Copy, c as MapPin, d as Linkedin, f as KeyRound, g as Eye, h as Github, i as Sun, j as LockOpen, k as ArrowUpRight, l as Mail, m as GraduationCap, n as Users, o as Rocket, p as HeartPulse, r as Trophy, s as Moon, t as X, u as Lock, v as Database, w as Briefcase, x as Cloud, y as Cpu } from "../_libs/lucide-react.mjs";
+import { t as clsx } from "../_libs/clsx.mjs";
+import { t as twMerge } from "../_libs/tailwind-merge.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-C82oalzP.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var __defProp = Object.defineProperty;
@@ -28,6 +33,53 @@ var robostreaks_exports = /* @__PURE__ */ __exportAll({ default: () => robostrea
 var robostreaks_default = "/assets/robostreaks-BMrMx5R8.jpg";
 var tata_exports = /* @__PURE__ */ __exportAll({ default: () => tata_default });
 var tata_default = "/assets/tata-BOJ_g6yq.jpg";
+function cn(...inputs) {
+	return twMerge(clsx(inputs));
+}
+var Dialog = Dialog$1;
+var DialogTrigger = DialogTrigger$1;
+var DialogPortal = DialogPortal$1;
+var DialogOverlay = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogOverlay$1, {
+	ref,
+	className: cn("fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", className),
+	...props
+}));
+DialogOverlay.displayName = DialogOverlay$1.displayName;
+var DialogContent = import_react.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DialogPortal, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogOverlay, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DialogContent$1, {
+	ref,
+	className: cn("fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:rounded-lg", className),
+	...props,
+	children: [children, /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DialogClose, {
+		className: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background cursor-pointer transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+			className: "sr-only",
+			children: "Close"
+		})]
+	})]
+})] }));
+DialogContent.displayName = DialogContent$1.displayName;
+var DialogHeader = ({ className, ...props }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+	className: cn("flex flex-col space-y-1.5 text-center sm:text-left", className),
+	...props
+});
+DialogHeader.displayName = "DialogHeader";
+var DialogFooter = ({ className, ...props }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+	className: cn("flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2", className),
+	...props
+});
+DialogFooter.displayName = "DialogFooter";
+var DialogTitle = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogTitle$1, {
+	ref,
+	className: cn("text-lg font-semibold leading-none tracking-tight", className),
+	...props
+}));
+DialogTitle.displayName = DialogTitle$1.displayName;
+var DialogDescription = import_react.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogDescription$1, {
+	ref,
+	className: cn("text-sm text-muted-foreground", className),
+	...props
+}));
+DialogDescription.displayName = DialogDescription$1.displayName;
 var profileImg = Object.values(/* @__PURE__ */ Object.assign({ "/src/assets/profile.png": profile_exports }))[0]?.default || "";
 var NAV = [
 	{
@@ -141,7 +193,7 @@ function Nav({ scrolled, theme, onToggleTheme }) {
 					href: "#top",
 					className: "flex items-center gap-2.5 font-display font-bold text-base md:text-lg",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "relative h-8 w-8 shrink-0 rounded-full border-2 border-primary/70 p-[2px] bg-background shadow-glow",
+						className: "relative h-8 w-8 shrink-0 rounded-full border-2 border-primary p-[2px] bg-background shadow-glow",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "h-full w-full rounded-full overflow-hidden",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
@@ -165,12 +217,15 @@ function Nav({ scrolled, theme, onToggleTheme }) {
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "flex items-center gap-2",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 						type: "button",
 						onClick: onToggleTheme,
-						"aria-label": `Switch to ${theme === "dark" ? "light" : "dark"} mode`,
-						className: "glass-strong grid h-9 w-9 place-items-center rounded-full text-foreground transition-transform hover:scale-110",
-						children: theme === "dark" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sun, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Moon, { className: "h-4 w-4" })
+						"aria-label": "Toggle dark mode",
+						className: "glass-strong flex items-center justify-center gap-1.5 h-9 px-3 rounded-full text-foreground transition-transform hover:scale-105",
+						children: [theme === "dark" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sun, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Moon, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-[12px] font-medium text-muted-foreground",
+							children: "Dark"
+						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 						href: "#contact",
 						className: "inline-flex items-center gap-1.5 rounded-full bg-gradient-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]",
@@ -208,11 +263,66 @@ function Section({ id, eyebrow, title, subtitle, children }) {
 		}), children]
 	});
 }
+function TypewriterRole() {
+	const roles = [
+		"AI & Machine Learning Enthusiast",
+		"Computer Vision Developer",
+		"Data Engineering Learner",
+		"CSE Undergraduate · PMEC 2027"
+	];
+	const [text, setText] = (0, import_react.useState)("");
+	const [isDeleting, setIsDeleting] = (0, import_react.useState)(false);
+	const [loopNum, setLoopNum] = (0, import_react.useState)(0);
+	const [typingSpeed, setTypingSpeed] = (0, import_react.useState)(75);
+	(0, import_react.useEffect)(() => {
+		let timer = setTimeout(() => {
+			const fullText = roles[loopNum % roles.length];
+			setText(isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1));
+			if (!isDeleting && text === fullText) {
+				setIsDeleting(true);
+				setTypingSpeed(1800);
+			} else if (isDeleting && text === "") {
+				setIsDeleting(false);
+				setLoopNum(loopNum + 1);
+				setTypingSpeed(75);
+			} else setTypingSpeed(isDeleting ? 45 : 75);
+		}, typingSpeed);
+		return () => clearTimeout(timer);
+	}, [
+		text,
+		isDeleting,
+		loopNum,
+		typingSpeed
+	]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+			id: "typed-role",
+			children: text
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: {
+			display: "inline-block",
+			width: "2px",
+			height: "1em",
+			background: "currentColor",
+			marginLeft: "2px",
+			verticalAlign: "text-bottom",
+			animation: "blink 1s step-end infinite"
+		} }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }` })
+	] });
+}
 function Hero() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 		id: "top",
 		className: "relative mx-auto w-full max-w-7xl px-5 pt-20 pb-16 md:px-8 md:pt-28 md:pb-24",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "absolute inset-0 z-[-1] opacity-50 dark:opacity-20",
+			style: {
+				backgroundColor: "#f0f4ff",
+				backgroundImage: "radial-gradient(circle, #b0bcd4 1px, transparent 1px)",
+				backgroundSize: "28px 28px"
+			}
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "grid items-center gap-12 md:grid-cols-[1.2fr_1fr]",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "animate-fade-up",
@@ -237,7 +347,18 @@ function Hero() {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						className: "mt-5 text-base font-medium text-muted-foreground md:text-lg",
-						children: "AI & Machine Learning Enthusiast · Data Engineering Learner · Computer Vision Developer · CSE Undergraduate"
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TypewriterRole, {})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						style: {
+							fontSize: "1.25rem",
+							fontWeight: 600,
+							color: "var(--foreground)",
+							fontStyle: "normal",
+							marginBottom: "0.75rem",
+							marginTop: "1.25rem"
+						},
+						children: "I build computer vision systems that work in the real world."
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						className: "mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base",
@@ -250,26 +371,38 @@ function Hero() {
 								href: "/resume.pdf",
 								download: true,
 								className: "group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Download, { className: "h-4 w-4" }), " Download Resume"]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Download, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex flex-col text-left",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Download Resume" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										style: {
+											fontSize: "10px",
+											opacity: .7,
+											display: "block",
+											lineHeight: 1,
+											marginTop: "2px"
+										},
+										children: "PDF · Updated Jun 2026"
+									})]
+								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 								href: "#contact",
 								className: "glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform hover:scale-[1.03]",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mail, { className: "h-4 w-4" }), " Contact"]
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 								href: "https://www.linkedin.com/in/pradyumna-kumar-mohapatra/",
 								target: "_blank",
 								rel: "noreferrer",
-								className: "glass grid h-11 w-11 place-items-center rounded-full transition-transform hover:scale-110",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Linkedin, { className: "h-4 w-4" })
+								className: "glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform hover:scale-[1.03]",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Linkedin, { className: "h-4 w-4" }), " LinkedIn"]
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 								href: "https://github.com/PradyumnaZypher",
 								target: "_blank",
 								rel: "noreferrer",
-								className: "glass grid h-11 w-11 place-items-center rounded-full transition-transform hover:scale-110",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Github, { className: "h-4 w-4" })
+								className: "glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform hover:scale-[1.03]",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Github, { className: "h-4 w-4" }), " GitHub"]
 							})
 						]
 					})
@@ -278,15 +411,39 @@ function Hero() {
 				className: "relative mx-auto w-full max-w-xs animate-fade-up md:ml-auto md:mr-16",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -inset-6 rounded-[2.5rem] bg-gradient-primary opacity-20 blur-2xl" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "glass-strong relative rounded-[2.5rem] p-4 shadow-glow",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "relative overflow-hidden rounded-[1.8rem] border border-white/5 bg-slate-950/20",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 							src: profileImg,
 							alt: "Pradyumna Kumar Mohapatra",
 							width: 768,
 							height: 896,
 							className: "h-full w-full object-cover aspect-[4/5] transition-transform duration-700 hover:scale-105"
-						})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "absolute",
+							style: {
+								bottom: "-10px",
+								left: "12px"
+							},
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-border rounded-full px-2.5 py-1 flex items-center gap-1.5 shadow-sm",
+								style: {
+									fontSize: "11px",
+									fontWeight: 500
+								},
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										className: "relative flex h-1.5 w-1.5",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "absolute inline-flex h-full w-full rounded-full bg-green-500",
+											style: { animation: "openpulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite" }
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500" })]
+									}),
+									"Open to work",
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `@keyframes openpulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }` })
+								]
+							})
+						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "mt-4 px-1.5 pb-1.5 flex flex-col gap-3",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -327,7 +484,7 @@ function Hero() {
 					})]
 				})]
 			})]
-		})
+		})]
 	});
 }
 function About() {
@@ -498,21 +655,24 @@ function Experience() {
 					org: "Central Tool Room & Training Centre (CTTC)",
 					time: "Jun 2025 — Jul 2025",
 					bullets: ["Hands-on industrial training", "Applied engineering practice"],
-					logoKey: "cttc"
+					logoKey: "cttc",
+					linkedinUrl: "https://www.linkedin.com/company/cttc-bhubaneswar/"
 				},
 				{
 					role: "Data Analytics Virtual Intern",
 					org: "Tata Group (Forage)",
 					time: "May 2025 — Jul 2025",
 					bullets: ["Business analytics simulations", "Data-driven decision frameworks"],
-					logoKey: "tata"
+					logoKey: "tata",
+					linkedinUrl: "https://www.linkedin.com/company/theforage/"
 				},
 				{
 					role: "GCP Skills Learner",
 					org: "Google Cloud Skills Boost",
 					time: "Jan 2025 — Jun 2025",
 					bullets: ["Cloud computing fundamentals", "Hands-on labs across GCP services"],
-					logoKey: "gcp"
+					logoKey: "gcp",
+					linkedinUrl: "https://www.linkedin.com/company/google-cloud/"
 				},
 				{
 					role: "Summer Intern",
@@ -526,7 +686,8 @@ function Experience() {
 					org: "ROBOSTREAKS Robotics Club",
 					time: "Oct 2024 — Present",
 					bullets: ["Robotics & embedded systems", "Team-based engineering"],
-					logoKey: "robostreaks"
+					logoKey: "robostreaks",
+					linkedinUrl: "https://www.linkedin.com/company/robostreaks/"
 				}
 			].map((e, i) => {
 				const logoUrl = Object.entries(logoModules).find(([path]) => path.includes(`/logos/${e.logoKey}.`))?.[1]?.default;
@@ -536,13 +697,31 @@ function Experience() {
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-primary opacity-0 blur-2xl transition-opacity group-hover:opacity-30" }),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "flex items-start justify-between gap-3",
-							children: [logoUrl ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							children: [logoUrl ? e.linkedinUrl ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								href: e.linkedinUrl,
+								target: "_blank",
+								rel: "noreferrer",
+								title: `Visit ${e.org} on LinkedIn`,
+								className: "grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl bg-white p-1.5 shadow-glow border border-transparent transition-all duration-300 hover:scale-110 hover:border-primary/30 cursor-pointer",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+									src: logoUrl,
+									alt: e.org,
+									className: "h-full w-full object-contain"
+								})
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								className: "grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-2xl bg-white p-1.5 shadow-glow",
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 									src: logoUrl,
 									alt: e.org,
 									className: "h-full w-full object-contain"
 								})
+							}) : e.linkedinUrl ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								href: e.linkedinUrl,
+								target: "_blank",
+								rel: "noreferrer",
+								title: `Visit ${e.org} on LinkedIn`,
+								className: "grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-glow border border-transparent transition-all duration-300 hover:scale-110 hover:border-primary-glow/30 cursor-pointer",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Briefcase, { className: "h-5 w-5" })
 							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								className: "grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-glow",
 								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Briefcase, { className: "h-5 w-5" })
@@ -555,8 +734,14 @@ function Experience() {
 							className: "mt-4 text-lg font-semibold",
 							children: e.role
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-sm font-medium text-primary",
+						e.linkedinUrl ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+							href: e.linkedinUrl,
+							target: "_blank",
+							rel: "noreferrer",
+							className: "text-sm font-medium text-primary hover:text-primary-glow transition-colors cursor-pointer inline-block mt-1",
+							children: e.org
+						}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-sm font-medium text-primary mt-1",
 							children: e.org
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
@@ -778,7 +963,211 @@ function Services() {
 		})
 	});
 }
+function ProjectCard({ p, unlocked, onUnlock }) {
+	const [passcode, setPasscode] = (0, import_react.useState)("");
+	const [error, setError] = (0, import_react.useState)(false);
+	const Icon = p.icon;
+	const handleUnlock = (e) => {
+		e.preventDefault();
+		if (passcode.trim().toLowerCase() === "recruiter") {
+			onUnlock();
+			setError(false);
+			toast.success("All projects unlocked successfully!");
+		} else {
+			setError(true);
+			toast.error("Incorrect passcode. Please try again.");
+		}
+	};
+	if (p.isLocked && !unlocked) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: "glass group flex flex-col overflow-hidden rounded-3xl transition-all hover:shadow-glow relative min-h-[480px]",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-neutral-800 to-neutral-950 dark:from-neutral-900 dark:to-black flex items-center justify-center border-b border-border",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent bg-size-20" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex flex-col items-center gap-2 z-10 text-center px-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 rounded-full bg-primary/20 blur-md animate-pulse" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "relative grid h-14 w-14 place-items-center rounded-full border border-primary/30 bg-background/80 text-primary shadow-glow",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lock, { className: "h-6 w-6" })
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "mt-2 rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary",
+					children: "Recruiter Access Only"
+				})]
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex flex-1 flex-col p-6 justify-between",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+					className: "text-lg font-semibold text-foreground/90",
+					children: p.title
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-1.5 text-xs leading-relaxed text-muted-foreground",
+					children: "This deployment is secured to protect model endpoints. Please enter the recruiter passcode."
+				})] }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+					onSubmit: handleUnlock,
+					className: "mt-4 space-y-3",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "space-y-1",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", {
+							htmlFor: `passcode-input-${p.title.replace(/\s+/g, "-")}`,
+							className: "text-[10px] font-bold uppercase tracking-wider text-muted-foreground",
+							children: "Recruiter Passcode"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "relative",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+								id: `passcode-input-${p.title.replace(/\s+/g, "-")}`,
+								type: "password",
+								value: passcode,
+								onChange: (e) => {
+									setPasscode(e.target.value);
+									if (error) setError(false);
+								},
+								placeholder: "Enter passcode...",
+								className: `w-full rounded-xl border bg-background/50 px-4 py-2 text-sm outline-none transition-all placeholder:text-muted-foreground/50 ${error ? "border-red-500/50 focus:border-red-500/80 focus:ring-1 focus:ring-red-500/20" : "border-border focus:border-primary/50 focus:ring-1 focus:ring-primary/20"}`
+							}), error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1 text-[10px] text-red-500 font-medium",
+								children: "Incorrect passcode. Hint: check resume/LinkedIn."
+							})]
+						})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						type: "submit",
+						className: "flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-primary py-2.5 text-xs font-bold text-primary-foreground shadow-glow transition-all hover:opacity-95 active:scale-[0.98] cursor-pointer",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(KeyRound, { className: "h-3.5 w-3.5" }), " Unlock Project"]
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-4 text-[10px] text-center text-muted-foreground/60 leading-normal",
+					children: "Need the code? You can find it on my resume, or contact me via LinkedIn."
+				})
+			]
+		})]
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: "glass group flex flex-col overflow-hidden rounded-3xl transition-all hover:-translate-y-1.5 hover:shadow-glow min-h-[480px]",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "relative aspect-[16/10] overflow-hidden bg-gradient-primary",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "absolute inset-0 opacity-30",
+					style: {
+						backgroundImage: "radial-gradient(circle at 30% 30%, white 1px, transparent 1px), radial-gradient(circle at 70% 70%, white 1px, transparent 1px)",
+						backgroundSize: "24px 24px"
+					}
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "absolute inset-0 grid place-items-center",
+					children: p.isLocked ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "relative",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 rounded-full bg-emerald-500/20 blur-md" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, { className: "h-16 w-16 text-white/90 drop-shadow-xl transition-transform duration-500 group-hover:scale-110" })]
+					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, { className: "h-16 w-16 text-white/90 drop-shadow-xl transition-transform duration-500 group-hover:scale-110" })
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+					className: "absolute left-4 top-4 rounded-full bg-card/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary backdrop-blur flex items-center gap-1",
+					children: [
+						p.isLocked && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LockOpen, { className: "h-2.5 w-2.5 text-emerald-500" }),
+						" ",
+						p.tag
+					]
+				})
+			]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "flex flex-1 flex-col p-6",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex-grow",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+						className: "text-lg font-semibold flex items-center gap-2",
+						children: [p.title, p.isLocked && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "rounded-md bg-emerald-500/10 px-1.5 py-0.5 text-[9px] font-bold text-emerald-600 dark:text-emerald-400 uppercase",
+							children: "Unlocked"
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-1.5 text-sm text-muted-foreground",
+						children: p.desc
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+						className: "mt-4 space-y-1.5",
+						children: p.features.map((f) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+							className: "flex items-center gap-2 text-xs text-foreground/75",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-3.5 w-3.5 text-primary" }),
+								" ",
+								f
+							]
+						}, f))
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mt-4 flex flex-wrap gap-1.5",
+						children: p.stack.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary",
+							children: s
+						}, s))
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-6 flex items-center gap-3 border-t border-border pt-4",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+					href: p.githubUrl || "https://github.com/PradyumnaZypher",
+					target: "_blank",
+					rel: "noreferrer",
+					className: "inline-flex items-center gap-1.5 text-xs font-semibold text-foreground/70 hover:text-primary",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Github, { className: "h-3.5 w-3.5" }), " Code"]
+				}), p.images && p.images.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Dialog, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogTrigger, {
+					asChild: true,
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+						className: "ml-auto inline-flex items-center gap-1 text-xs font-semibold text-primary cursor-pointer",
+						children: ["View Dashboard ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Eye, { className: "h-3.5 w-3.5" })]
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DialogContent, {
+					className: "sm:max-w-3xl glass-strong border-border text-foreground",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DialogTitle, {
+						className: "text-xl font-bold",
+						children: [p.title, " - Preview"]
+					}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "mt-2 space-y-4",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs text-muted-foreground",
+							children: "Below are the dashboard screenshots for this project."
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "grid gap-4 max-h-[60vh] overflow-y-auto pr-2",
+							children: p.images.map((img, index) => {
+								return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "overflow-hidden rounded-2xl border border-border bg-card/50",
+									children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+										src: img.startsWith("public/") ? img.replace(/^public\//, "/") : img,
+										alt: `${p.title} Preview ${index + 1}`,
+										className: "w-full h-auto object-contain",
+										onError: (e) => {
+											e.currentTarget.style.display = "none";
+										}
+									})
+								}, index);
+							})
+						})]
+					})]
+				})] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+					href: p.url || "#",
+					target: "_blank",
+					rel: "noreferrer",
+					className: "ml-auto inline-flex items-center gap-1 text-xs font-semibold text-primary",
+					children: ["Live demo ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, { className: "h-3.5 w-3.5" })]
+				})]
+			})]
+		})]
+	});
+}
 function Projects() {
+	const [unlocked, setUnlocked] = (0, import_react.useState)(() => {
+		if (typeof window !== "undefined") return localStorage.getItem("portfolio_projects_unlocked") === "true";
+		return false;
+	});
+	const handleUnlockAll = () => {
+		setUnlocked(true);
+		if (typeof window !== "undefined") localStorage.setItem("portfolio_projects_unlocked", "true");
+	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, {
 		id: "projects",
 		eyebrow: "Selected Work",
@@ -787,6 +1176,26 @@ function Projects() {
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "grid gap-6 md:grid-cols-2 lg:grid-cols-3",
 			children: [
+				{
+					title: "Skin Cancer Detection & Classification",
+					icon: HeartPulse,
+					tag: "Medical AI",
+					desc: "Deep learning model deployed on Hugging Face for multi-class screening of skin lesions with clinical interpretability.",
+					features: [
+						"Malignant/Benign screening",
+						"Hugging Face Spaces integration",
+						"Explainable AI (Grad-CAM overlays)"
+					],
+					stack: [
+						"PyTorch",
+						"Hugging Face",
+						"Gradio",
+						"Python"
+					],
+					isLocked: true,
+					url: "https://huggingface.co/spaces/PradyumnaZypher/DermoAI-Skin-Cancer-Detection",
+					githubUrl: "https://github.com/PradyumnaZypher/skin-cancer-detection"
+				},
 				{
 					title: "Face Recognition & Attendance System",
 					icon: Camera,
@@ -801,7 +1210,10 @@ function Projects() {
 						"Python",
 						"OpenCV",
 						"ML"
-					]
+					],
+					isLocked: true,
+					url: "https://github.com/PradyumnaZypher",
+					githubUrl: "https://github.com/PradyumnaZypher"
 				},
 				{
 					title: "Retail Analytics Dashboard",
@@ -817,6 +1229,15 @@ function Projects() {
 						"Power BI",
 						"Excel",
 						"SQL"
+					],
+					isLocked: true,
+					githubUrl: "https://github.com/PradyumnaZypher",
+					images: [
+						"public/projects/pic-11.png",
+						"public/projects/pic-22.png",
+						"public/projects/pic-33.png",
+						"public/projects/pic-44.png",
+						"public/projects/pic-55.png"
 					]
 				},
 				{
@@ -833,78 +1254,102 @@ function Projects() {
 						"Python",
 						"OpenCV",
 						"Computer Vision"
-					]
+					],
+					isLocked: true,
+					url: "https://github.com/PradyumnaZypher",
+					githubUrl: "https://github.com/PradyumnaZypher"
 				}
-			].map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
-				className: "glass group flex flex-col overflow-hidden rounded-3xl transition-all hover:-translate-y-1.5 hover:shadow-glow",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "relative aspect-[16/10] overflow-hidden bg-gradient-primary",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "absolute inset-0 opacity-30",
-							style: {
-								backgroundImage: "radial-gradient(circle at 30% 30%, white 1px, transparent 1px), radial-gradient(circle at 70% 70%, white 1px, transparent 1px)",
-								backgroundSize: "24px 24px"
-							}
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "absolute inset-0 grid place-items-center",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(p.icon, { className: "h-16 w-16 text-white/90 drop-shadow-xl transition-transform duration-500 group-hover:scale-110" })
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "absolute left-4 top-4 rounded-full bg-card/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary backdrop-blur",
-							children: p.tag
-						})
-					]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex flex-1 flex-col p-6",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "flex-grow",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
-								className: "text-lg font-semibold",
-								children: p.title
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-								className: "mt-1.5 text-sm text-muted-foreground",
-								children: p.desc
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-								className: "mt-4 space-y-1.5",
-								children: p.features.map((f) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
-									className: "flex items-center gap-2 text-xs text-foreground/75",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Check, { className: "h-3.5 w-3.5 text-primary" }),
-										" ",
-										f
-									]
-								}, f))
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "mt-4 flex flex-wrap gap-1.5",
-								children: p.stack.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-									className: "rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary",
-									children: s
-								}, s))
-							})
-						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "mt-6 flex items-center gap-3 border-t border-border pt-4",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-							href: "https://github.com/PradyumnaZypher",
-							target: "_blank",
-							rel: "noreferrer",
-							className: "inline-flex items-center gap-1.5 text-xs font-semibold text-foreground/70 hover:text-primary",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Github, { className: "h-3.5 w-3.5" }), " Code"]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-							href: "#",
-							className: "ml-auto inline-flex items-center gap-1 text-xs font-semibold text-primary",
-							children: ["Live demo ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, { className: "h-3.5 w-3.5" })]
-						})]
-					})]
-				})]
+			].map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProjectCard, {
+				p,
+				unlocked,
+				onUnlock: handleUnlockAll
 			}, p.title))
 		})
+	});
+}
+function CertificateCard({ c }) {
+	const Icon = c.icon;
+	const cleanPath = (path) => {
+		if (!path) return "";
+		if (path.startsWith("public/")) return path.replace(/^public\//, "/");
+		return path;
+	};
+	const CardContent = /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "glass group flex items-center gap-4 rounded-2xl p-5 transition-all hover:-translate-y-1 hover:shadow-glow cursor-pointer w-full text-left",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-glow transition-transform group-hover:rotate-6",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, { className: "h-5 w-5" })
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "min-w-0 flex-grow",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "truncate text-sm font-semibold group-hover:text-primary transition-colors",
+					children: c.name
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "text-xs text-muted-foreground",
+					children: c.org
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Award, { className: "ml-auto h-4 w-4 text-primary/40 transition-colors group-hover:text-primary shrink-0" })
+		]
+	});
+	if (c.image) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Dialog, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogTrigger, {
+		asChild: true,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+			className: "w-full bg-transparent border-none p-0 focus:outline-none cursor-pointer",
+			children: CardContent
+		})
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DialogContent, {
+		className: "sm:max-w-3xl glass-strong border-border text-foreground",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DialogTitle, {
+			className: "text-xl font-bold",
+			children: c.name
+		}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mt-2 space-y-4",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+					className: "text-xs text-muted-foreground",
+					children: [
+						"Credential issued by ",
+						c.org,
+						"."
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "overflow-hidden rounded-2xl border border-border bg-card/50 flex items-center justify-center p-2 max-h-[65vh] w-full",
+					children: c.image.toLowerCase().endsWith(".pdf") ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("iframe", {
+						src: cleanPath(c.image),
+						title: `${c.name} Certificate`,
+						className: "w-full h-[60vh] border-0 rounded-xl"
+					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						src: cleanPath(c.image),
+						alt: `${c.name} Certificate`,
+						className: "max-w-full max-h-[55vh] object-contain rounded-xl",
+						onError: (e) => {
+							e.currentTarget.style.display = "none";
+						}
+					})
+				}),
+				c.url && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "flex justify-end pt-2",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+						href: c.url,
+						target: "_blank",
+						rel: "noreferrer",
+						className: "inline-flex items-center gap-1.5 rounded-xl bg-gradient-primary px-4 py-2 text-xs font-bold text-primary-foreground shadow-glow transition-all hover:opacity-95",
+						children: ["Verify Credential ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowUpRight, { className: "h-3.5 w-3.5" })]
+					})
+				})
+			]
+		})]
+	})] });
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+		href: c.url || "#",
+		target: "_blank",
+		rel: "noreferrer",
+		className: "block",
+		children: CardContent
 	});
 }
 function Certifications() {
@@ -917,64 +1362,62 @@ function Certifications() {
 			className: "grid gap-4 sm:grid-cols-2 lg:grid-cols-3",
 			children: [
 				{
-					name: "Google Cloud Certifications",
+					name: "Google Cloud Arcade",
 					org: "Google Cloud",
 					icon: Cloud,
-					url: "https://www.cloudskillsboost.google/"
+					url: "",
+					image: "public/certf/GCP.png"
 				},
 				{
 					name: "Data Science in Python",
 					org: "University of Michigan",
 					icon: CodeXml,
-					url: "https://www.coursera.org/"
+					url: "",
+					image: "public/certf/ACC 1 - 2.pdf"
 				},
 				{
 					name: "Introduction to Big Data",
 					org: "UC San Diego",
 					icon: Database,
-					url: "https://www.coursera.org/"
+					url: "",
+					image: "public/certf/ACC 1 - 1.pdf"
 				},
 				{
 					name: "Big Data Modeling & Management",
 					org: "UC San Diego",
 					icon: Database,
-					url: "https://www.coursera.org/"
+					url: "",
+					image: "public/certf/ACC 2 - 1.pdf"
 				},
 				{
 					name: "Big Data Integration & Processing",
 					org: "UC San Diego",
 					icon: Database,
-					url: "https://www.coursera.org/"
+					url: "",
+					image: "public/certf/ACC 2 - 2.pdf"
 				},
 				{
 					name: "Machine Learning with Big Data",
 					org: "UC San Diego",
 					icon: Brain,
-					url: "https://www.coursera.org/"
+					url: "",
+					image: "public/certf/ACC 2 - 3.pdf"
+				},
+				{
+					name: "TATA Data Analysis Job Simulation",
+					org: "Forage",
+					icon: ChartColumn,
+					url: "",
+					image: "public/certf/tata.pdf"
+				},
+				{
+					name: "CTTC Certification",
+					org: "CTTC",
+					icon: Award,
+					url: "",
+					image: "public/certf/cttc.jpg"
 				}
-			].map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-				href: c.url,
-				target: "_blank",
-				rel: "noreferrer",
-				className: "glass group flex items-center gap-4 rounded-2xl p-5 transition-all hover:-translate-y-1 hover:shadow-glow cursor-pointer",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-						className: "grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-glow transition-transform group-hover:rotate-6",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(c.icon, { className: "h-5 w-5" })
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "min-w-0 flex-grow",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "truncate text-sm font-semibold group-hover:text-primary transition-colors",
-							children: c.name
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "text-xs text-muted-foreground",
-							children: c.org
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Award, { className: "ml-auto h-4 w-4 text-primary/40 transition-colors group-hover:text-primary shrink-0" })
-				]
-			}, c.name))
+			].map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CertificateCard, { c }, c.name))
 		})
 	});
 }
