@@ -6,7 +6,7 @@ import { n as toast } from "../_libs/sonner.mjs";
 import { A as Sparkles, C as Camera, D as BookOpen, E as BotMessageSquare, M as CodeXml, N as ChartColumn, O as Award, S as Check, T as Brain, _ as Download, a as Send, b as Copy, c as MapPin, d as Linkedin, f as KeyRound, g as Eye, h as Github, i as Sun, j as LockOpen, k as ArrowUpRight, l as Mail, m as GraduationCap, n as Users, o as Rocket, p as HeartPulse, r as Trophy, s as Moon, t as X, u as Lock, v as Database, w as Briefcase, x as Cloud, y as Cpu } from "../_libs/lucide-react.mjs";
 import { t as clsx } from "../_libs/clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-C82oalzP.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-BASXFlE_.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var __defProp = Object.defineProperty;
@@ -111,6 +111,39 @@ var NAV = [
 		label: "Contact"
 	}
 ];
+function useTypewriter(roles, typingSpeed = 75, deletingSpeed = 45, pauseMs = 1800) {
+	const [displayed, setDisplayed] = (0, import_react.useState)("");
+	const [roleIndex, setRoleIndex] = (0, import_react.useState)(0);
+	const [charIndex, setCharIndex] = (0, import_react.useState)(0);
+	const [deleting, setDeleting] = (0, import_react.useState)(false);
+	(0, import_react.useEffect)(() => {
+		const current = roles[roleIndex];
+		let timeout;
+		if (!deleting) if (charIndex < current.length) timeout = setTimeout(() => {
+			setDisplayed(current.slice(0, charIndex + 1));
+			setCharIndex((c) => c + 1);
+		}, typingSpeed);
+		else timeout = setTimeout(() => setDeleting(true), pauseMs);
+		else if (charIndex > 0) timeout = setTimeout(() => {
+			setDisplayed(current.slice(0, charIndex - 1));
+			setCharIndex((c) => c - 1);
+		}, deletingSpeed);
+		else {
+			setDeleting(false);
+			setRoleIndex((r) => (r + 1) % roles.length);
+		}
+		return () => clearTimeout(timeout);
+	}, [
+		charIndex,
+		deleting,
+		roleIndex,
+		roles,
+		typingSpeed,
+		deletingSpeed,
+		pauseMs
+	]);
+	return displayed;
+}
 function Portfolio() {
 	const [progress, setProgress] = (0, import_react.useState)(0);
 	const [scrolled, setScrolled] = (0, import_react.useState)(false);
@@ -191,20 +224,13 @@ function Nav({ scrolled, theme, onToggleTheme }) {
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 					href: "#top",
-					className: "flex items-center gap-2.5 font-display font-bold text-base md:text-lg",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "relative h-8 w-8 shrink-0 rounded-full border-2 border-primary p-[2px] bg-background shadow-glow",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "h-full w-full rounded-full overflow-hidden",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-								src: profileImg,
-								alt: "Pradyumna",
-								className: "h-full w-full object-cover"
-							})
-						})
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "flex items-center gap-2 font-display font-bold text-base md:text-lg",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 						className: "hidden sm:inline",
 						children: "Pradyumna"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "sm:hidden",
+						children: "PKM"
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
@@ -217,15 +243,18 @@ function Nav({ scrolled, theme, onToggleTheme }) {
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "flex items-center gap-2",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 						type: "button",
 						onClick: onToggleTheme,
-						"aria-label": "Toggle dark mode",
-						className: "glass-strong flex items-center justify-center gap-1.5 h-9 px-3 rounded-full text-foreground transition-transform hover:scale-105",
-						children: [theme === "dark" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sun, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Moon, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "text-[12px] font-medium text-muted-foreground",
+						"aria-label": `Switch to ${theme === "dark" ? "light" : "dark"} mode`,
+						className: "glass-strong inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-foreground transition-transform hover:scale-105",
+						children: theme === "dark" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Sun, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-xs font-medium hidden sm:inline",
+							children: "Light"
+						})] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Moon, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-xs font-medium hidden sm:inline",
 							children: "Dark"
-						})]
+						})] })
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 						href: "#contact",
 						className: "inline-flex items-center gap-1.5 rounded-full bg-gradient-primary px-4 py-2 text-xs font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]",
@@ -263,66 +292,21 @@ function Section({ id, eyebrow, title, subtitle, children }) {
 		}), children]
 	});
 }
-function TypewriterRole() {
-	const roles = [
+function Hero() {
+	const typedRole = useTypewriter([
 		"AI & Machine Learning Enthusiast",
 		"Computer Vision Developer",
 		"Data Engineering Learner",
 		"CSE Undergraduate · PMEC 2027"
-	];
-	const [text, setText] = (0, import_react.useState)("");
-	const [isDeleting, setIsDeleting] = (0, import_react.useState)(false);
-	const [loopNum, setLoopNum] = (0, import_react.useState)(0);
-	const [typingSpeed, setTypingSpeed] = (0, import_react.useState)(75);
-	(0, import_react.useEffect)(() => {
-		let timer = setTimeout(() => {
-			const fullText = roles[loopNum % roles.length];
-			setText(isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1));
-			if (!isDeleting && text === fullText) {
-				setIsDeleting(true);
-				setTypingSpeed(1800);
-			} else if (isDeleting && text === "") {
-				setIsDeleting(false);
-				setLoopNum(loopNum + 1);
-				setTypingSpeed(75);
-			} else setTypingSpeed(isDeleting ? 45 : 75);
-		}, typingSpeed);
-		return () => clearTimeout(timer);
-	}, [
-		text,
-		isDeleting,
-		loopNum,
-		typingSpeed
 	]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-			id: "typed-role",
-			children: text
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: {
-			display: "inline-block",
-			width: "2px",
-			height: "1em",
-			background: "currentColor",
-			marginLeft: "2px",
-			verticalAlign: "text-bottom",
-			animation: "blink 1s step-end infinite"
-		} }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }` })
-	] });
-}
-function Hero() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 		id: "top",
 		className: "relative mx-auto w-full max-w-7xl px-5 pt-20 pb-16 md:px-8 md:pt-28 md:pb-24",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "absolute inset-0 z-[-1] opacity-50 dark:opacity-20",
-			style: {
-				backgroundColor: "#f0f4ff",
-				backgroundImage: "radial-gradient(circle, #b0bcd4 1px, transparent 1px)",
-				backgroundSize: "28px 28px"
-			}
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		style: {
+			backgroundImage: "radial-gradient(circle, rgba(99,102,241,0.18) 1px, transparent 1px)",
+			backgroundSize: "28px 28px"
+		},
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "grid items-center gap-12 md:grid-cols-[1.2fr_1fr]",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "animate-fade-up",
@@ -345,23 +329,19 @@ function Hero() {
 							})
 						]
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "mt-5 text-base font-medium text-muted-foreground md:text-lg",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TypewriterRole, {})
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+						className: "mt-4 flex items-center text-base font-medium text-primary md:text-lg min-h-[1.75rem]",
+						children: [typedRole, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "ml-0.5 inline-block w-[2px] h-[1.1em] bg-primary align-text-bottom",
+							style: { animation: "tw-blink 1s step-end infinite" }
+						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						style: {
-							fontSize: "1.25rem",
-							fontWeight: 600,
-							color: "var(--foreground)",
-							fontStyle: "normal",
-							marginBottom: "0.75rem",
-							marginTop: "1.25rem"
-						},
+						className: "mt-3 text-lg font-semibold text-foreground md:text-xl leading-snug",
 						children: "I build computer vision systems that work in the real world."
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-						className: "mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base",
+						className: "mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base",
 						children: "I'm a Computer Science undergraduate passionate about Artificial Intelligence, Machine Learning, Data Engineering, and Computer Vision. I transform ideas into impactful solutions through research, hackathons, internships, and real-world projects."
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -370,19 +350,13 @@ function Hero() {
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 								href: "/resume.pdf",
 								download: true,
-								className: "group inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Download, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex flex-col text-left",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Download Resume" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										style: {
-											fontSize: "10px",
-											opacity: .7,
-											display: "block",
-											lineHeight: 1,
-											marginTop: "2px"
-										},
-										children: "PDF · Updated Jun 2026"
-									})]
+								className: "group relative inline-flex flex-col items-center gap-0 rounded-full bg-gradient-primary px-5 py-2.5 text-primary-foreground shadow-glow transition-transform hover:scale-[1.03]",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+									className: "inline-flex items-center gap-2 text-sm font-semibold",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Download, { className: "h-4 w-4" }), " Download Resume"]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-[10px] font-medium opacity-75 leading-none mt-0.5",
+									children: "PDF · Updated Jun 2026"
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
@@ -394,15 +368,15 @@ function Hero() {
 								href: "https://www.linkedin.com/in/pradyumna-kumar-mohapatra/",
 								target: "_blank",
 								rel: "noreferrer",
-								className: "glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform hover:scale-[1.03]",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Linkedin, { className: "h-4 w-4" }), " LinkedIn"]
+								className: "glass inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition-transform hover:scale-[1.03] hover:border-primary hover:text-primary",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Linkedin, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "LinkedIn" })]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 								href: "https://github.com/PradyumnaZypher",
 								target: "_blank",
 								rel: "noreferrer",
-								className: "glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform hover:scale-[1.03]",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Github, { className: "h-4 w-4" }), " GitHub"]
+								className: "glass inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition-transform hover:scale-[1.03] hover:border-primary hover:text-primary",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Github, { className: "h-4 w-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "GitHub" })]
 							})
 						]
 					})
@@ -419,30 +393,13 @@ function Hero() {
 							width: 768,
 							height: 896,
 							className: "h-full w-full object-cover aspect-[4/5] transition-transform duration-700 hover:scale-105"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "absolute",
-							style: {
-								bottom: "-10px",
-								left: "12px"
-							},
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white border border-border rounded-full px-2.5 py-1 flex items-center gap-1.5 shadow-sm",
-								style: {
-									fontSize: "11px",
-									fontWeight: 500
-								},
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-										className: "relative flex h-1.5 w-1.5",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "absolute inline-flex h-full w-full rounded-full bg-green-500",
-											style: { animation: "openpulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite" }
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500" })]
-									}),
-									"Open to work",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `@keyframes openpulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }` })
-								]
-							})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-background/90 backdrop-blur border border-border px-2.5 py-1 text-[11px] font-semibold shadow-md",
+							style: { zIndex: 10 },
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+								className: "relative flex h-2 w-2 shrink-0",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "relative inline-flex h-2 w-2 rounded-full bg-emerald-500" })]
+							}), "Open to work"]
 						})]
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "mt-4 px-1.5 pb-1.5 flex flex-col gap-3",
@@ -484,7 +441,12 @@ function Hero() {
 					})]
 				})]
 			})]
-		})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
+        @keyframes tw-blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+      ` })]
 	});
 }
 function About() {
@@ -621,15 +583,15 @@ function Education() {
 		})
 	});
 }
+var logoModules = /* #__PURE__ */ Object.assign({
+	"/src/assets/logos/cttc.jpg": cttc_exports,
+	"/src/assets/logos/gcp.jpg": gcp_exports,
+	"/src/assets/logos/plasticure.jpg": plasticure_exports,
+	"/src/assets/logos/pmec.jpg": pmec_exports,
+	"/src/assets/logos/robostreaks.jpg": robostreaks_exports,
+	"/src/assets/logos/tata.jpg": tata_exports
+});
 function Experience() {
-	const logoModules = /* #__PURE__ */ Object.assign({
-		"/src/assets/logos/cttc.jpg": cttc_exports,
-		"/src/assets/logos/gcp.jpg": gcp_exports,
-		"/src/assets/logos/plasticure.jpg": plasticure_exports,
-		"/src/assets/logos/pmec.jpg": pmec_exports,
-		"/src/assets/logos/robostreaks.jpg": robostreaks_exports,
-		"/src/assets/logos/tata.jpg": tata_exports
-	});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Section, {
 		id: "experience",
 		eyebrow: "Experience",
