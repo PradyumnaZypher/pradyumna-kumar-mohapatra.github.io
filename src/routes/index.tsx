@@ -810,12 +810,16 @@ function ProjectCard({ p, unlocked, onUnlock }: { p: ProjectItem; unlocked: bool
 }
 
 function Projects() {
-  const [unlocked, setUnlocked] = useState<boolean>(() => {
+  const [unlocked, setUnlocked] = useState<boolean>(false);
+
+  useEffect(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("portfolio_projects_unlocked") === "true";
+      const isUnlocked = localStorage.getItem("portfolio_projects_unlocked") === "true";
+      if (isUnlocked) {
+        setUnlocked(true);
+      }
     }
-    return false;
-  });
+  }, []);
 
   const handleUnlockAll = () => {
     setUnlocked(true);
